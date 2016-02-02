@@ -18,6 +18,7 @@ public class TraverseFolder {
                         traverseFolder(file2.getAbsolutePath());
                     } else {
                         System.out.println("文件" + file2.getAbsolutePath());
+
                     }
                 }
             }

@@ -21,6 +21,8 @@ public class ReadFile {
             /**
              *写入文件
              */
+            WriteFile writeFile=new WriteFile(writefileName);
+            writeFile.writeFile(line);
             line=in.readLine();
         }
         in.close();
