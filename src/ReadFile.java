@@ -6,14 +6,10 @@ import java.io.IOException;
  * Created by admin on 2016/2/2.
  */
 public class ReadFile {
-    private String fileName;
-    private String writefileName;
-    public ReadFile(String fileName,String writefileName) {
-        this.fileName = fileName;
-        this.writefileName=writefileName;
-    }
 
-    public void readfile() throws IOException {
+
+    public static void readfile(String fileName,String writefileName) throws IOException {
+        WriteFile.writeFile(fileName,writefileName);
         String line = "";
         BufferedReader in = new BufferedReader(new FileReader(fileName));
         line = in.readLine();
@@ -21,10 +17,10 @@ public class ReadFile {
             /**
              *写入文件
              */
-            WriteFile writeFile=new WriteFile(writefileName);
-            writeFile.writeFile(line);
+            WriteFile.writeFile(line,writefileName);
             line=in.readLine();
         }
+
         in.close();
     }
 }

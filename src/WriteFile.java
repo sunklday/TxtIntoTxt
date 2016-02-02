@@ -4,13 +4,13 @@ import java.io.*;
  * Created by admin on 2016/2/2.
  */
 public class WriteFile {
-    private String fileName;
-    public WriteFile(String fileName){
-        this.fileName=fileName;
-    }
-    public void writeFile(String line) throws IOException {
-        BufferedWriter out= new BufferedWriter(new FileWriter(fileName));
+
+    public static void writeFile(String line,String fileName) throws IOException {
+
+        BufferedWriter out= new BufferedWriter(new FileWriter(fileName,true));
         out.write(line);
+        out.newLine();
+        out.flush();
         out.close();
     }
 }
