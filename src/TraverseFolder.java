@@ -20,7 +20,8 @@ public class TraverseFolder {
 
     public void traverseFolder(String path, String writeFileName) throws IOException {
         File file = new File(path);
-        if (file.exists()) {
+        File writeFile = new File(writeFileName);
+        if (file.exists()&&writeFile.exists()) {
             File[] files = file.listFiles();
             if (files.length == 0) {
                 System.out.println("文件夹是空的!");
