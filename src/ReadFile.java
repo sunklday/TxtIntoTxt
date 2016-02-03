@@ -9,10 +9,8 @@ public class ReadFile {
 
 
     public static void readfile(String fileName,String writefileName) throws IOException {
-        WriteFile.writeFile(fileName,writefileName);
-        String line = "";
+        String line = fileName;
         BufferedReader in = new BufferedReader(new FileReader(fileName));
-        line = in.readLine();
         while (line != null) {
             /**
              *写入文件

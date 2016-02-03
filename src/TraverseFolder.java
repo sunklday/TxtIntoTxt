@@ -5,9 +5,17 @@ import java.io.IOException;
  * Created by admin on 2016/2/2.
  */
 public class TraverseFolder {
-    public static String subtxtstring(String filename) {
-        String txt = filename.substring(filename.length() - 4, filename.length());
-        return txt;
+
+    private static TraverseFolder instance;
+
+    private TraverseFolder() {
+    }
+
+    public static TraverseFolder getTraverseFolder(){
+        if (instance==null) {
+            return new TraverseFolder();
+        }
+        return instance;
     }
 
     public void traverseFolder(String path, String writeFileName) throws IOException {
@@ -24,8 +32,8 @@ public class TraverseFolder {
                         traverseFolder(file2.getAbsolutePath(), writeFileName);
                     } else {
                         System.out.println("文件" + file2.getAbsolutePath());
-                        System.out.println(file2.getName());
-                        if (subtxtstring(file2.getName()).equals(".txt")) {
+
+                        if (isTxt(file2.getName()).equals(".txt")) {
                             String fileName = file2.getAbsolutePath();
                             ReadFile.readfile(fileName, writeFileName);
                         }
@@ -35,5 +43,10 @@ public class TraverseFolder {
         } else {
             System.out.println("文件不存在!");
         }
+    }
+
+    public static String isTxt(String filename) {
+        String txt = filename.substring(filename.length() - 4, filename.length());
+        return txt;
     }
 }
