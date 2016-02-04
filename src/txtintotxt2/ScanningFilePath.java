@@ -36,6 +36,8 @@ public class ScanningFilePath implements ScanningMachine {
 
     private boolean isTxt(String fileName){
         int length = fileName.length();
+
+
         String txt = ".txt";
         if(fileName.substring(length-4,length).equals(txt))
             return true;
